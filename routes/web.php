@@ -7,3 +7,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
+Route::view('coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
