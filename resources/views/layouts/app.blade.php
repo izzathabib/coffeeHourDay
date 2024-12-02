@@ -14,12 +14,14 @@
     <aside id="sidebar">
         <!-- Sidebar logo -->
         <div class="d-flex">
-            <div class="sidebar-logo">
-                <a href="#">CoffeeHourDay</a>
-            </div>
-            <button id="toggle-btn" type="button">
+            <button id="toggle-btn" type="button" onclick=closeSidebar()>
                 <i class="lni lni-menu-hamburger-1"></i>
             </button>
+            <div class="sidebar-logo" id="sidebar-header">
+              
+              <a href="#" class="sidebar-word-logo">CoffeeH<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>rDay</a>
+            </div>
+            
         </div>
         <!-- / -->
         <!-- Sidebar nav menu -->
@@ -62,5 +64,19 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      const toggleButton = document.getElementById('toggle-btn')
+      const sidebar = document.getElementById('sidebar')
+
+      function closeSidebar(){
+        sidebar.style.width = "58px";
+        document.getElementById("toggle-btn").onclick= openNav;
+      }
+
+      function openNav(){
+        sidebar.style.width = "300px";
+        document.getElementById("toggle-btn").onclick= closeSidebar;
+      }
+    </script>
   </body>
 </html>
