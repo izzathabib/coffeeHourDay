@@ -44,8 +44,6 @@ a {
   list-style: none;
 }
 
-
-
 #sidebar{
   z-index: 1000;
   height: 100vh;
@@ -54,11 +52,9 @@ a {
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
-
-  /* position: sticky;
+  position: sticky;
   top: 0;
-  align-self: start;
   transition: 300ms ease-in-out;
   overflow: hidden;
-  text-wrap: nowrap;  */
+  text-wrap: nowrap;  
 }

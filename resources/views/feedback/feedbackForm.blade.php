@@ -1,10 +1,27 @@
 @extends('layouts.app')
+@section('styles')
+  <style>
+    .card-header h3 {
+      
+      color: #5B71FF;
+      font-size: 1.2em;
+    }
+
+    .submit-button button{
+      background-color: #5B71FF;
+      color: white;
+      border: 0px;
+      border-radius: 7px;
+      padding: 8px;
+    }
+  </style>
+@endsection
 
 @section('content')
 <div class="container my-5">
-    <div class="card shadow">
-        <div class="card-header bg-primary text-white">
-            <h3 class="mb-0">Event Feedback Form</h3>
+    <div class="card">
+        <div class="card-header bg-white mt-2">
+            <h3>Coffee Hour Day Feedback Form</h3>
         </div>
         <div class="card-body">
             <form>
@@ -49,8 +66,8 @@
                 </div>
 
                 <!-- Submit Button -->
-                <div class="d-grid">
-                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                <div class="d-grid submit-button">
+                    <button type="submit" class="">Submit Feedback</button>
                 </div>
             </form>
         </div>
