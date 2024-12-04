@@ -6,7 +6,8 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
-                'resources/css/sidebarStyle.css', 
+                'resources/css/sidebarStyle.css',
+                'resources/css/viewFeedbackStyle.css', 
                 
                 'resources/js/app.js',
             ],
