@@ -104,3 +104,6 @@ Route::get('coffee/viewFeedback', function () {
     ));
     
 })->name('viewFeedback');
+
+Route::view('coffee/registerForm', 'registration/registerForm')->name('registerForm');
+
