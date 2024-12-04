@@ -104,7 +104,8 @@ ul{
   top: 0;
   transition: 350ms ease-in-out;
   overflow: hidden;
-  text-wrap: nowrap;  
+  text-wrap: nowrap; 
+  border-right: 1px solid #f0f0f0; 
 }
 
 .sidebar-word-logo {
