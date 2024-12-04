@@ -71,6 +71,8 @@ ul{
   transition: 350ms ease-in-out;
   overflow: hidden;
   text-wrap: nowrap;  
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .sidebar-word-logo {

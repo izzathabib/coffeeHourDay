@@ -32,7 +32,7 @@
               <span>Dashboard</span>
             </li>
           </a>
-          <a href="#" class="sidebar-link">
+          <a href="/coffee/registerForm" class="sidebar-link">
             <li class="sidebar-item">
               <i class="lni lni-file-pencil"></i>
               <span>Registration</span>
@@ -50,7 +50,7 @@
               <span>Team Management</span>
             </li>
           </a>
-          <a href="#" class="sidebar-link">
+          <a href="/coffee/feedbackForm" class="sidebar-link">
             <li class="sidebar-item">
               <i class="lni lni-comment-1-share"></i>
               <span>Feedback</span>

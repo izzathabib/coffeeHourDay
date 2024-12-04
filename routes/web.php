@@ -8,3 +8,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
 Route::view('coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
+Route::view('coffee/registerForm', 'registration/registerForm')->name('registerForm');
