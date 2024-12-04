@@ -32,8 +32,8 @@
               <span>Dashboard</span>
             </a>
           </li>
-          <li>
-            <a href="#" class="sidebar-item">
+          <li class="{{ Route::is('registerForm') ? 'active' : '' }}">
+            <a href="{{ route('registerForm')}}" class="sidebar-item">
               <i class="lni lni-file-pencil"></i>
               <span>Registration</span>
             </a>
