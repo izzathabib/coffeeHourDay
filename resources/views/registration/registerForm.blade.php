@@ -29,6 +29,17 @@
         text-align: justify;
         text-align-last: center;
     }
+
+    .event-info {
+        font-weight: bold;
+    }
+
+    .card-footer {
+    background-color: #f8f9fa;
+    font-size: 1.0em;
+    padding: 10px;
+}
+
 </style>
 @endsection
 
@@ -42,15 +53,16 @@
             <div class="event-details">
                 <div class="detail-row">
                     <label>Time:</label>
-                    <span>7:45 PM - 11:00 PM (MYT)</span>
+                    <span class="event-info">7:45 PM - 11:00 PM (MYT)</span>
                 </div>
                 <div class="detail-row">
                     <label>Date:</label>
-                    <span>15th December 2023 (Friday)</span>
+                    <span class="event-info">15th December 2023 (Friday)</span>
                 </div>
                 <div class="detail-row">
                     <label>Venue:</label>
-                    <span>Dewan Tuanku Syed Putra, Universiti Sains Malaysia</span>
+                    <span class="event-info">Dewan Tuanku Syed Putra, Universiti Sains Malaysia</span>
+                    <small><br><br>Presented to you by Buddies of the International Mobility and Collaboration Center.</small>
                 </div>
             </div>
 
@@ -65,13 +77,13 @@
                 <!-- Phone Number -->
                 <div class="mb-4">
                     <label for="phoneNumber" class="form-label">Phone Number <span class="required">*</span></label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" required>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-4">
-                    <label for="email" class="form-label">Email <span class="required">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your E-mail" required>
                 </div>
 
                 <!-- Profile -->
@@ -193,6 +205,10 @@
                     <button type="submit" class="">Register Now</button>
                 </div>
             </form>
+        </div>
+        <!-- Footer -->
+        <div class="card-footer text-center">
+            <p>If there's any inquiries, you can contact: Vern (013-7299008), Angel (011-51790265), Joey (016-5338292).</p>
         </div>
     </div>
 </div>
