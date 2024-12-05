@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('styles')
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 <style>
     .card-header h3 {
 
@@ -196,11 +197,13 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const radioButtons = document.querySelectorAll('input[name="profile"]');
         const studentFields = document.getElementById('student_fields');
         const lecturerFields = document.getElementById('lecturer_fields');
+        const form = document.querySelector('form');
 
         // Function to reset and hide all profile-specific fields
         function resetFields() {
@@ -239,6 +242,47 @@
                 }
             });
         });
+
+    // Modal for form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Check if form is valid
+        if (!form.checkValidity()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill in all required fields!',
+                confirmButtonColor: '#5B71FF'
+            });
+            return;
+        }
+
+        // Show confirmation modal
+        Swal.fire({
+            title: 'Confirm Registration',
+            text: 'Are you sure you want to register for the International Cultural Fiesta?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#5B71FF',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, register now!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful!',
+                    text: 'Thank you for registering for the International Cultural Fiesta.',
+                    confirmButtonColor: '#5B71FF'
+                }).then(() => {
+                    // Submit the form
+                    form.submit();
+                });
+            }
+        });
     });
+});
 </script>
 @endsection
