@@ -6,14 +6,14 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 Route::get(' ', function () {
     return redirect()->route('dashboard');
 });
-Route::view('/coffee/dashboard', 'dashboard')->name('dashboard');
+
+Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
+Route::view('coffee/slot', 'slot')->name('slot');
+Route::view('coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
 Route::view('/coffee/registerForm', 'registration/registerForm')->name('registerForm');
 Route::view('/coffee/team-management', 'team-management')->name('team.management');
 Route::view('/coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
-// Route::get('/generate-qr', function () {
-//     $formUrl = route('feedbackForm'); 
-//     return QrCode::size(200)->generate($formUrl);
-// });
+
 Route::get('/qr-code', function () {
     $formUrl = route('feedbackForm'); 
     return view('feedback/feedbackQr', compact('formUrl'));
