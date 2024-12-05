@@ -39,7 +39,7 @@
             </a>
           </li>
           <li class="{{ Route::is('slot') ? 'active' : '' }}">
-            <a href="#" class="sidebar-item">
+            <a href="{{ route('slot')}}" class="sidebar-item">
                 <i class="lni lni-calendar-days"></i>
                 <span>Slot</span>
             </a>
