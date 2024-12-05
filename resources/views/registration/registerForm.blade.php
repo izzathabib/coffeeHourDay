@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('styles')
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 <style>
     .card-header h3 {
 
@@ -28,6 +29,17 @@
         text-align: justify;
         text-align-last: center;
     }
+
+    .event-info {
+        font-weight: bold;
+    }
+
+    .card-footer {
+    background-color: #f8f9fa;
+    font-size: 1.0em;
+    padding: 10px;
+}
+
 </style>
 @endsection
 
@@ -41,15 +53,16 @@
             <div class="event-details">
                 <div class="detail-row">
                     <label>Time:</label>
-                    <span>7:45 PM - 11:00 PM (MYT)</span>
+                    <span class="event-info">7:45 PM - 11:00 PM (MYT)</span>
                 </div>
                 <div class="detail-row">
                     <label>Date:</label>
-                    <span>15th December 2023 (Friday)</span>
+                    <span class="event-info">15th December 2023 (Friday)</span>
                 </div>
                 <div class="detail-row">
                     <label>Venue:</label>
-                    <span>Dewan Tuanku Syed Putra, Universiti Sains Malaysia</span>
+                    <span class="event-info">Dewan Tuanku Syed Putra, Universiti Sains Malaysia</span>
+                    <small><br><br>Presented to you by Buddies of the International Mobility and Collaboration Center.</small>
                 </div>
             </div>
 
@@ -64,13 +77,13 @@
                 <!-- Phone Number -->
                 <div class="mb-4">
                     <label for="phoneNumber" class="form-label">Phone Number <span class="required">*</span></label>
-                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                    <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" required>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-4">
-                    <label for="email" class="form-label">Email <span class="required">*</span></label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your E-mail" required>
                 </div>
 
                 <!-- Profile -->
@@ -193,14 +206,20 @@
                 </div>
             </form>
         </div>
+        <!-- Footer -->
+        <div class="card-footer text-center">
+            <p>If there's any inquiries, you can contact: Vern (013-7299008), Angel (011-51790265), Joey (016-5338292).</p>
+        </div>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const radioButtons = document.querySelectorAll('input[name="profile"]');
         const studentFields = document.getElementById('student_fields');
         const lecturerFields = document.getElementById('lecturer_fields');
+        const form = document.querySelector('form');
 
         // Function to reset and hide all profile-specific fields
         function resetFields() {
@@ -239,6 +258,47 @@
                 }
             });
         });
+
+    // Modal for form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Check if form is valid
+        if (!form.checkValidity()) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill in all required fields!',
+                confirmButtonColor: '#5B71FF'
+            });
+            return;
+        }
+
+        // Show confirmation modal
+        Swal.fire({
+            title: 'Confirm Registration',
+            text: 'Are you sure you want to register for the International Cultural Fiesta?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#5B71FF',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, register now!',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Show success message
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registration Successful!',
+                    text: 'Thank you for registering for the International Cultural Fiesta.',
+                    confirmButtonColor: '#5B71FF'
+                }).then(() => {
+                    // Submit the form
+                    window.location.href = "{{ route('participants.list') }}";
+                });
+            }
+        });
     });
+});
 </script>
 @endsection
