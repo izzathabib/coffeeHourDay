@@ -6,8 +6,11 @@ Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
+
+
 Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
 Route::view('coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
+Route::view('coffee/team-management', 'team-management')->name('team.management');
 Route::get('coffee/viewFeedback', function () {
     $dummyFeedbackData = 
     [
@@ -106,4 +109,5 @@ Route::get('coffee/viewFeedback', function () {
 })->name('viewFeedback');
 
 Route::view('coffee/registerForm', 'registration/registerForm')->name('registerForm');
+
 
