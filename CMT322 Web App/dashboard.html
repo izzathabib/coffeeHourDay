@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coffee Hour Day</title>   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f6f6f6;
+        }
+        a {
+            text-decoration: none;
+            color: #9799A6;
+        }
+        .sidebar-nav {
+            font-weight:450;
+            font-size: 1em;
+        }
+        .lni {
+            font-weight:900;
+            font-size: 1.1em;
+        }
+        .sidebar-item {
+            padding: 10px;
+            margin-left: 1px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1.1em;
+        }
+        .sidebar-item:hover {
+            background-color: #E5E9FF;
+            border: 0px;
+            border-radius: 0.7em;
+        }
+        .sidebar-link:hover {
+            color: #5B71FF;
+        }
+        .toggle-btn{
+            margin-left: 14px;
+            padding: 0.1em;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #9799A6;
+        }
+        ul{
+            list-style: none;
+            padding: 5px;
+        }
+        #sidebar{
+            z-index: 1000;
+            height: 100vh;
+            width: 300px;
+            padding: 6px;
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            transition: 350ms ease-in-out;
+            overflow: hidden;
+            text-wrap: nowrap;  
+        }
+        .sidebar-word-logo {
+            color:black;
+        }
+        .sidebar-logo {
+            padding: 20px;
+            font-weight: 700;
+        }
+        .rotate svg:last-child{
+            rotate: 180deg;
+        }
+        .sidebar.close{
+            padding: 5px;
+            width: 60px;
+        }
+        .content {
+            padding: 20px;
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .admin-status span {
+            display: block;
+        }
+        .online {
+            color: green;
+        }
+        .offline {
+            color: red;
+        }
+        .content.active {
+            margin-left: 250px;
+        }       
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <aside id="sidebar">
+            <!-- Sidebar logo -->
+            <div class="d-flex">
+                <button id="toggle-btn" type="button" onclick=closeSidebar()>
+                    <i class="lni lni-menu-hamburger-1"></i>
+                </button>
+                <div class="sidebar-logo" id="sidebar-header">
+                  
+                  <a href="#" class="sidebar-word-logo">CoffeeH<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-coffee"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>rDay</a>
+                </div>
+                
+            </div>
+            <!-- / -->
+            <!-- Sidebar nav menu -->
+            <ul class="sidebar-nav">
+              <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                  <i class="lni lni-home-2"></i>
+                  <span>Dashboard</span>
+                </li>
+              </a>
+              <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                  <i class="lni lni-file-pencil"></i>
+                  <span>Registration</span>
+                </li>
+              </a>
+              <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                  <i class="lni lni-calendar-days"></i>
+                  <span>Book Slot</span>
+                </li>
+              </a>
+              <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                  <i class="lni lni-user-multiple-4"></i>
+                  <span>Team Management</span>
+                </li>
+              </a>
+              <a href="#" class="sidebar-link">
+                <li class="sidebar-item">
+                  <i class="lni lni-comment-1-share"></i>
+                  <span>Feedback</span>
+                </li>
+              </a>
+            </ul>
+            <!-- / -->
+        </aside>
+        <!-- Content Area -->
+        <div class="flex-grow-1 p-4">
+        <div class="container-fluid">
+        
+        <div class="row">
+        
+            <main role="main" class="col-md-11 col-lg-11 ml-sm-auto px-4 content">
+                <div class="container-left offset-md-1" style="margin-top: 10px;">
+                <h2 class="text-center">Dashboard</h2> 
+                <div class="card" style="margin-top: 30px;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card text-center custom-card-color">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Number of participants</h4>
+                                        <p class="card-text display-4">67</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .custom-card-color {
+                                    background-color: #f1c17c;
+                                }
+                            </style>
+                            <div class="col-md-4">
+                                <div class="card text-center custom-card-color2">
+                                    <div class="card-body">
+                                        <h4 class="card-title d-flex justify-content-between align-items-center">
+                                            <span class="mx-auto">Team assigned</span>
+                                            <img src="data:image/png;base64,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" alt="Logo" style="width: 30px; height: 30px;margin-left: -10px;">
+                                        </h4>
+                                        <p class="d-flex justify-content-start align-items-center">
+                                            <span>Technical team:</span>
+                                            <span style="margin-left: 192px; font-weight: bold;">3</span>
+                                        </p>
+                                        <p class="d-flex justify-content-start align-items-center">
+                                            <span>Decoration team:</span>
+                                            <span style="margin-left: 177px; font-weight: bold;">3</span>
+                                        </p>
+                                        <p class="d-flex justify-content-start align-items-center">
+                                            <span>Content team:</span>
+                                            <span style="margin-left: 197px;font-weight: bold;">4</span>
+                                        </p>
+                                        <p class="d-flex justify-content-start align-items-center">
+                                            <span>Safety team:</span>
+                                            <span style="margin-left: 211px;font-weight: bold;">4</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .custom-card-color2 {
+                                    background-color: #ecf8ec;
+                                }
+                            </style>
+                            <div class="col-md-4">
+                                <div class="card text-center custom-card-color3">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Booked slot</h4>                                       
+                                        <div class="row">
+                                            <!-- Column 1 -->
+                                            <div class="col-6">
+                                                <span style="margin-left: -48px;">Time session</span>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: -10px;">Booked:</span><span style="font-weight: bold; margin-left: 5px;">7</span>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: -10px;">Left:</span><span style="font-weight: bold; margin-left: 5px;">1</span>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: -10px;">Total:</span><span style="font-weight: bold; margin-left: 5px;">8</span>
+                                                </div>
+                                            </div>
+                                    
+                                            <!-- Column 2 -->
+                                            <div class="col-6">
+                                                <span style="margin-right: -57px;">Booth place</span>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: 45px;">Booked:</span><span style="font-weight: bold; margin-left: 5px;">6</span>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: 44px;">Left:</span><span style="font-weight: bold; margin-left: 5px;">2</span>
+                                                </div>
+                                                <div class="d-flex justify-content-start align-items-center">
+                                                    <span style="margin-left: 44px;">Total:</span><span style="font-weight: bold; margin-left: 5px;">8</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                                                            
+                                </div>
+                            </div>
+                            <style>
+                                .custom-card-color3 {
+                                    background-color: #c2c0f6;
+                                }
+                            </style>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h4 class="card-title text-center fw-bold">Admin</h4>
+                                <div class="admin-status">
+                                    <div class="row">
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 225px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -20px;">
+                                                Firdaus:
+                                            </span>                                            
+                                            <span class="online" style="display: inline-block; margin-left: 15px;">Online</span>
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 225px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -100px;">
+                                                Aiman:
+                                            </span>  
+                                            <span class="offline" style="display: inline-block; margin-left: 1px;">Offline</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 225px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -20px;">
+                                                Izzat:
+                                            </span>  
+                                            <span class="online" style="display: inline-block; margin-left: 34px;">Online</span>
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 223px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -100px;">
+                                                Afizal:
+                                            </span>
+                                            <span class="online" style="display: inline-block; margin-left: 1px;">Online</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 225px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -20px;">
+                                                Muaz:
+                                            </span>  
+                                            <span class="offline" style="display: inline-block; margin-left: 28px;">Offline</span>
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center justify-content-start">
+                                            <span style="margin-left: 228px; display: inline-block;">
+                                                <img img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAAAbGxsMDAzW1tbS0tKysrJkZGRtbW3a2tqlpaVPT08YGBjIyMjr6+vCwsKIiIh9fX329vZHR0eenp4xMTG8vLzj4+NhYWGQkJBXV1fv7+93d3ehoaEqKiqCgoIkJCQ9PT21tbUwLzCXl5c4ODhTU1OMjIyMxEt0AAAEb0lEQVR4nO3di3aiMBAGYFMFChVtkSpqvfb2/m+4h2XZigKGZOIM9v+eIP/BXJiEOBgAAAAAAAAAAAAAAAD8Mus42gWz7XA43M6CXRRPuBtEauI/qkuBfycp1+lrTbzCNl1zN8+at2qMV/iKuZtoZdr8+E4e5Jy7mcZGnxr5cu8ed1ONJHWjS5Mg4W5ud9MO+XK9+6m+dQyo1CN3kztJ3jsHVGrfo5ljYZAvF3I3XJdnGFCpnsyN5gGVmnI3XodNwF48RdM+WBLfFxPLgEpJn/sP1glfuSO0e7YOqNQLd4g2dqNMSfJoQxJQKe4YzSh+ozmxv9MJUUClFtxRGlwrWOh74o5SLyQLqNSIO0ytjDChyIdI1wtzEnsi1UBakDickgaUOCd2rTxdI68y1aV2qCPjDnSBOKC8nynNmvuUtPX3B3nCJXekM3QrttKMO9IZ8oDSOuLaQUJZO8T0A420oeboIKHPHaoidZDwgztUBe2yu7DjDlXx4iChrA1F6lVpLuAOVXH/Cbtvavct4c5BwjfuUBVLBwmfuUNVRA4SptyhKqhrGDlZdQzKanBJWFXYQUJhm8F7+oTckc7QT4iyFm2DgU+eMOKOdIZ21yInbueCuiMOuQNdoF7VfHMHumB7FuqcwLNRuoe69ey549SgHU2ljaR/kSbkDlOLcutC2qbFP4QJha1JSxuygLJKpSeGVAm5gzSKiQIKPu1NU1SUt4V/giSh0GGmMCIIKPxDNvvxVOw4WrLtiqI7YeHJKuCBu/k6bF4yhH+KUDrce0DzH6q0IzQtzGqL0uqHrUx2akS+9DZbjLsGFFiYuaLbpqms7VBNoc6FCoWtsH0mbbonpWSdfurGf7gab9znfLk4aM2XyTqfZybxm76mWfmiXwU78dKgOn0Ms1T4e6CJhTf3ozTy5564nTMAAAAAAAAAALgfyST04vnR9/3jPPbCyd3UEZNwunkODrXl0kO228zD/kZdx9HL7GpNPzd7i+Ie3T+bm0yX3W+RWC2nsu4YaDLatG9UtMs2svfZRumXRbrS04fMlGvf5tmdy6T9b0K43BLGK+yXYh7lyMWFCoWdgP2phYtvnE99s57RSCL9wwjm3iOuRcHIxUUK9R45fq3HWzy+H9tbn2dwcR/NNTc8PJy4Hl2afN+oQ9JfzabvFt9DubgfogvXJxi962ecXBu7PGOUUC49zWXOuuOcO9p/jqYOypuQba0c5HNxe4kN8hcP+lshbBEPqi7uY7NFenBaUhf8QdgZKaovLpB9gUJ/vyyVL5qALm6bo0LymQ33QrQdwSuVtHnwnP3bP9k39q7YBnRXKaRi+S8K9Nc/0bM7Fn+7cpo5q2+jXVzTTc9mi4OzJKPP5tKszp9J8jAPSH1/lyvmY428l8J65q+K8ifDgvmUKPelosr8/68O3E3XtDdOyF/+1WN+iyQSSoGESCgfEiKhfEiIhPIhIRLKh4RIKB8S/uaEPSl5WxS9t+OHPhjvjRMCAAAAAAAAAAAAAADc0B+xP1M2soRqpwAAAABJRU5ErkJggg==" alt="Logo" style="width: 30px; height: 30px;margin-left: -100px;">
+                                                Nazrin:
+                                            </span>
+                                            <span class="offline" style="display: inline-block; margin-left: 1px;">Offline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+      const toggleButton = document.getElementById('toggle-btn')
+      const sidebar = document.getElementById('sidebar')
+
+      function closeSidebar(){
+        sidebar.style.width = "58px";
+        document.getElementById("toggle-btn").onclick= openNav;
+      }
+
+      function openNav(){
+        sidebar.style.width = "300px";
+        document.getElementById("toggle-btn").onclick= closeSidebar;
+      }
+    </script>
+</body>
+</html>

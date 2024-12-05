@@ -27,20 +27,54 @@ a {
 
 .sidebar-item {
   padding: 10px;
-  margin-left: 1px;
+  margin: 5px 0 0 1px;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1.1em;
 }
 
+.dropdown-item {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1em;
+}
+
+.dropdown-svg {
+  position: absolute;
+  right: 41px;
+  bottom: -20px;
+}
+
+.dropdown-svg2 {
+  position: absolute;
+  right: 121px;
+  bottom: -19px;
+}
+
+.dropdown-word {
+  position: relative;
+  left: 35px;
+  color: black;
+}
+
 .sidebar-item:hover {
   background-color: #E5E9FF;
   border: 0px;
   border-radius: 0.7em;
+  color: #5B71FF;
 }
 
-.sidebar-link:hover {
+
+
+.active a {
+  background-color: #E5E9FF;
+  border: 0px;
+  border-radius: 0.7em;
+  color: #5B71FF;
+}
+
+.active-word .dropdown-toggle {
   color: #5B71FF;
 }
 
@@ -61,7 +95,7 @@ ul{
 #sidebar{
   z-index: 1000;
   height: 100vh;
-  width: 300px;
+  width: 290px;
   padding: 6px;
   background-color: #FFFFFF;
   display: flex;
@@ -70,7 +104,8 @@ ul{
   top: 0;
   transition: 350ms ease-in-out;
   overflow: hidden;
-  text-wrap: nowrap;  
+  text-wrap: nowrap; 
+  border-right: 1px solid #f0f0f0; 
 }
 
 .sidebar-word-logo {
@@ -80,10 +115,6 @@ ul{
 .sidebar-logo {
   padding: 20px;
   font-weight: 700;
-}
-
-.rotate svg:last-child{
-  rotate: 180deg;
 }
 
 #sidebar.close{
