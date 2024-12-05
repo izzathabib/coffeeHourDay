@@ -6,14 +6,11 @@ body {
 
 /* New Button Styles */
 button {
-    background-color: transparent;  /* Transparent background */
-    border: 1px solid black;        /* Black outline */
-    color: #4285F4;                    /* Blue text */
-    padding: 8px 16px;               /* Adjust padding as needed */
-    font-size: 14px;                 /* Font size */
-    font-weight: 400;                /* Font weight */
-    cursor: pointer;                /* Pointer on hover */
-    transition: all 0.3s ease;       /* Smooth transition */
+    background-color: #5B71FF;
+    color: white; /* Transparent background */
+    border: 0px;
+    border-radius: 0.5em;
+    padding: 8px;
 }
 
 /* Hover effect for new buttons */
