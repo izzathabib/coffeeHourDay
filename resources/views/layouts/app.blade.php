@@ -38,12 +38,12 @@
               <span>Registration</span>
             </a>
           </li>
-          <li>
-            <a href="#" class="sidebar-item">
-              <i class="lni lni-calendar-days"></i>
-              <span>Book Slot</span>
-            </a>
-          </li>
+          <li class="{{ Route::is('slot') ? 'active' : '' }}">
+        <a href="{{ route('slot') }}" class="sidebar-item">
+            <i class="lni lni-calendar"></i>
+            <span>Slot</span>
+        </a>
+       </li>
           <li>
             <a href="#" class="sidebar-item">
               <i class="lni lni-user-multiple-4"></i>
