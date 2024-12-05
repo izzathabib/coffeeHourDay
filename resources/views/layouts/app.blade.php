@@ -44,8 +44,8 @@
               <span>Book Slot</span>
             </a>
           </li>
-          <li>
-            <a href="#" class="sidebar-item">
+          <li class="{{ Route::is('team.management') ? 'active' : '' }}">
+            <a href="{{ route('team.management')}}" class="sidebar-item">
               <i class="lni lni-user-multiple-4"></i>
               <span>Team Management</span>
             </a>
