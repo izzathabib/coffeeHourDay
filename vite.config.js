@@ -7,7 +7,8 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/css/sidebarStyle.css',
-                'resources/css/viewFeedbackStyle.css', 
+                'resources/css/viewFeedbackStyle.css',
+                'resources/css/feedbackFormPageStyle.css',
                 
                 'resources/js/app.js',
             ],

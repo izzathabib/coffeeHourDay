@@ -1,0 +1,51 @@
+.feedbackFormPageHeader {
+  background-color: #FFFFFF;
+  height: 120px;
+}
+
+.card-header h3 {
+  color: #5B71FF;
+  font-size: 1.2em;
+}
+
+.submit-button button{
+  background-color: #5B71FF;
+  color: white;
+  border: 0px;
+  border-radius: 0.5em;
+  padding: 8px;
+}
+
+.navAtFeedbackForm a {
+  color: #5B71FF;
+  border-bottom: 1px solid #5B71FF;
+}
+
+.navAtFeedbackForm {
+  border-bottom: 1px solid #5B71FF;
+}
+
+.nav-link {
+  color: #9799A6;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #5B71FF;
+  
+}
+
+.qrText {
+  color: #5B71FF;
+  font-weight: 500;
+}
+
+.fullQrCard {
+  height: 87vh;
+}
+
+.qrIcon {
+  width:2.5em;
+  margin: 3em 0 3em 0;
+}
+
