@@ -1,0 +1,50 @@
+/* General body font and background */
+body {
+    font-family: Poppins, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F6F6F6;
+}
+
+/* New Button Styles */
+button {
+    background-color: #5B71FF;
+    color: white; /* Transparent background */
+    border: 0px;
+    border-radius: 0.5em;
+    padding: 8px;
+}
+
+/* Hover effect for new buttons */
+button:hover {
+    background-color: #E5E9FF;         /* Blue background on hover */
+}
+
+/* Specific classes for each new button */
+button.add-member {
+    margin-right: 10px;  /* Add some space between buttons */
+}
+
+button.add-department {
+    margin-right: 10px;  /* Add some space between buttons */
+}
+
+button.cancel {
+    margin-right: 0;     /* No space after the cancel button */
+}
+
+/* Table Styling */
+.table {
+    font-size: 0.9em;
+}
+
+.table th {
+    color: #5B71FF;
+    font-weight: 600;
+}
+
+.table td {
+    color: #333333;
+}
+
+.team-Manage-card-header {
+    background-color: #5B71FF;
+}
