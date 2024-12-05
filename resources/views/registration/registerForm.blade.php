@@ -278,7 +278,7 @@
                     confirmButtonColor: '#5B71FF'
                 }).then(() => {
                     // Submit the form
-                    form.submit();
+                    window.location.href = "{{ route('participants.list') }}";
                 });
             }
         });

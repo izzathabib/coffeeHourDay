@@ -115,5 +115,5 @@ Route::get('coffee/viewFeedback', function () {
     
 })->name('viewFeedback');
 
-
+Route::get('/participants-list', [App\Http\Controllers\RegistrationController::class, 'showParticipants'])->name('participants.list');
 
