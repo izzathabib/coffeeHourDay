@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Http\Request;
 
 Route::get(' ', function () {
     return redirect()->route('dashboard');
@@ -9,15 +10,26 @@ Route::get(' ', function () {
 
 Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
 Route::view('coffee/slot', 'slot')->name('slot');
-Route::view('coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
 Route::view('/coffee/registerForm', 'registration/registerForm')->name('registerForm');
 Route::view('/coffee/team-management', 'team-management')->name('team.management');
-Route::view('/coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
 
+//Feedback
 Route::get('/qr-code', function () {
     $formUrl = route('feedbackForm'); 
     return view('feedback/feedbackQr', compact('formUrl'));
 })->name('feedbackQr');
+Route::view('/coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
+Route::post('/submit-feedback', function (Request $request) {
+    // Simulate processing with dummy data
+    $feedbackData = $request->all();
+
+    // Log the feedback data (optional)
+    // \Log::info('Feedback Submitted:', $feedbackData);
+
+    // Return a success message back to the form
+    return redirect()->route('submitSuccess');
+})->name('feedbackSubmit');
+Route::view('/coffee/submitSuccess', 'feedback/submitSuccess')->name('submitSuccess');
 Route::get('coffee/viewFeedback', function () {
     $dummyFeedbackData = 
     [
@@ -114,6 +126,7 @@ Route::get('coffee/viewFeedback', function () {
     ));
     
 })->name('viewFeedback');
+// --!--
 
 Route::get('/participants-list', [App\Http\Controllers\RegistrationController::class, 'showParticipants'])->name('participants.list');
 

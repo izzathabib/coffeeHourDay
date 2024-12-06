@@ -7,7 +7,8 @@
         <h3>Coffee Hour Day Feedback Form</h3>
     </div>
     <div class="card-body">
-        <form>
+        <form action="{{ route('feedbackSubmit') }}" method="POST">
+            @csrf
             <!-- Question 1 -->
             <div class="mb-4">
                 <label for="experienceRating" class="form-label">
