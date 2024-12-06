@@ -10,7 +10,12 @@ Route::get(' ', function () {
 
 Route::view('coffee/dashboard', 'dashboard')->name('dashboard');
 Route::view('coffee/slot', 'slot')->name('slot');
+
+//Registration
 Route::view('/coffee/registerForm', 'registration/registerForm')->name('registerForm');
+Route::get('/participants-list', [App\Http\Controllers\RegistrationController::class, 'showParticipants'])->name('participants.list');
+/* * */
+
 Route::view('/coffee/team-management', 'team-management')->name('team.management');
 
 //Feedback
@@ -20,13 +25,16 @@ Route::get('/qr-code', function () {
 })->name('feedbackQr');
 Route::view('/coffee/feedbackForm', 'feedback/feedbackForm')->name('feedbackForm');
 Route::post('/submit-feedback', function (Request $request) {
-    // Simulate processing with dummy data
-    $feedbackData = $request->all();
+    // Validate the form inputs
+    $validatedData = $request->validate([
+        'experienceRating' => 'required|integer|min:1|max:10',
+        'enjoyedMost' => 'required|string|min:4|max:1000',
+        'improvements' => 'required|string|min:4|max:1000',
+        'issues' => 'nullable|string|min:4|max:1000',
+        'additionalFeedback' => 'nullable|string|min:4|max:1000',
+    ]);
 
-    // Log the feedback data (optional)
-    // \Log::info('Feedback Submitted:', $feedbackData);
-
-    // Return a success message back to the form
+    // Return success message 
     return redirect()->route('submitSuccess');
 })->name('feedbackSubmit');
 Route::view('/coffee/submitSuccess', 'feedback/submitSuccess')->name('submitSuccess');
@@ -128,5 +136,5 @@ Route::get('coffee/viewFeedback', function () {
 })->name('viewFeedback');
 // --!--
 
-Route::get('/participants-list', [App\Http\Controllers\RegistrationController::class, 'showParticipants'])->name('participants.list');
+
 
