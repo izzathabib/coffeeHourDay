@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/sidebarStyle.css',
                 'resources/css/viewFeedbackStyle.css',
                 'resources/css/feedbackFormPageStyle.css',
+                'resources/css/teamManagement.css',
                 
                 'resources/js/app.js',
             ],
