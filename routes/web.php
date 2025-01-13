@@ -16,7 +16,12 @@ Route::view('/coffee/registerForm', 'registration/registerForm')->name('register
 Route::get('/participants-list', [App\Http\Controllers\RegistrationController::class, 'showParticipants'])->name('participants.list');
 /* * */
 
+//Team Management
 Route::view('/coffee/team-management', 'team-management')->name('team.management');
+Route::get('/coffee/team-management', [App\Http\Controllers\TeamManagementController::class, 'index'])->name('team.management');
+Route::post('/coffee/team-management/department', [App\Http\Controllers\TeamManagementController::class, 'addDepartment'])->name('team.management.addDepartment');
+Route::delete('/coffee/team-management/{id}', [App\Http\Controllers\TeamManagementController::class, 'deleteDepartment'])->name('team.management.delete');
+/***/
 
 //Feedback
 Route::get('/qr-code', function () {

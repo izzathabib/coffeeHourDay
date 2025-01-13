@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <div class="container mt-5">
     <div class="card shadow-sm">
         <div class="card-header team-Manage-card-header text-white d-flex justify-content-between align-items-center">
@@ -9,12 +14,13 @@
             <button class="btn btn-light btn-sm" id="add-department-btn" onclick="showDepartmentForm()">Add New Department</button>
         </div>
         <div class="card-body">
-            <!-- Department Form (Initially Hidden) -->
+            <!-- Department Form -->
             <div id="department-form" style="display: none;">
-                <form id="department-form-element">
+                <form action="{{ route('team.management.addDepartment') }}" method="POST">
+                    @csrf
                     <div class="mb-3">
                         <label for="department-name" class="form-label">Department Name</label>
-                        <input type="text" class="form-control" id="department-name" required>
+                        <input type="text" class="form-control" id="department-name" name="department_name" required>
                     </div>
                     <!-- Team Members Section -->
                     <div id="team-members-section">
@@ -32,25 +38,62 @@
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="button" class="add-member" onclick="addTeamMember()">Add Another Member</button>
-                        <button type="button" class="add-department" onclick="addDepartment()">Add Department</button>
+                        <button type="submit" class="add-department">Add Department</button>
                         <button type="button" class="cancel" onclick="closeDepartmentForm()">Cancel</button>
                     </div>
                 </form>
             </div>
 
             <!-- Display Added Departments -->
-            <div id="department-display" class="mt-4">
-                <h4>Departments:</h4>
-                <div class="row" id="department-cards">
-                    <!-- Department Cards Will Be Added Here Dynamically -->
-                </div>
+        <div id="department-display" class="mt-4">
+            <h4>Departments:</h4>
+            <div class="row" id="department-cards">
+                @foreach ($departments as $department)
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body position-relative">
+                                <!-- Delete Button Positioned at Top-Right -->
+                                <form action="{{ route('team.management.delete', $department->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this department?')" class="position-absolute" style="top: 10px; right: 10px;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                                
+                                <!-- Department Name -->
+                                <h5 class="card-title">{{ $department->name }}</h5>
+
+                                <!-- Team Members Table -->
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Team Member</th>
+                                            <th>Role</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($department->teamMembers as $index => $member)
+                                            <tr>
+                                                <td>{{ $index + 1 }}</td>
+                                                <td>{{ $member->name }}</td>
+                                                <td>{{ $member->role }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
+        </div>
         </div>
     </div>
 </div>
 
+
 <script>
-    // JavaScript functions (retain your existing code with minor updates)
+    // JavaScript functions to handle the UI behavior
     function showDepartmentForm() {
         const form = document.getElementById('department-form');
         form.style.display = 'block';
@@ -93,61 +136,6 @@
             </select>
         `;
         section.appendChild(newMember);
-    }
-
-    function addDepartment() {
-        const departmentName = document.getElementById('department-name').value;
-        const members = document.querySelectorAll('input[name="team-member[]"]');
-        const roles = document.querySelectorAll('select[name="role[]"]');
-
-        if (!departmentName.trim()) {
-            alert('Please enter a department name.');
-            return;
-        }
-
-        for (let i = 0; i < members.length; i++) {
-            if (!members[i].value.trim()) {
-                alert(`Please enter a name for Team Member ${i + 1}.`);
-                return;
-            }
-            if (!roles[i].value) {
-                alert(`Please select a role for Team Member ${i + 1}.`);
-                return;
-            }
-        }
-
-        const departmentCard = document.createElement('div');
-        departmentCard.className = 'col-md-4 mb-3';
-        let teamList = '';
-        for (let i = 0; i < members.length; i++) {
-            teamList += `<tr>
-                <td>${i + 1}</td>
-                <td>${members[i].value}</td>
-                <td>${roles[i].value}</td>
-            </tr>`;
-        }
-
-        departmentCard.innerHTML = `
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${departmentName}</h5>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Team Member</th>
-                                <th>Role</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${teamList}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        `;
-        document.getElementById('department-cards').appendChild(departmentCard);
-        closeDepartmentForm();
     }
 </script>
 @endsection
